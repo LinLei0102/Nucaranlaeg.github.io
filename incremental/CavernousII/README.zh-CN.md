@@ -35,17 +35,10 @@
 
 ## 在线部署（GitHub Pages）
 
-仓库已包含部署到 GitHub Pages 的全部材料：
+已启用 GitHub Pages，采用 **分支部署**：源 `master` / 根目录，推送即发布（通常 1 分钟内生效）。
 
 - 根目录 `index.html`：自动跳转到 `incremental/CavernousII/`
-- 根目录 `.nojekyll`：关闭 Jekyll，静态文件原样发布
-- `.github/workflows/pages.yml`：推送 `master` 或手动触发即构建并发布
-
-**首次启用只需一次设置**（仓库当前 `has_pages: false`，所以工作流会在 Configure Pages 步骤失败）：
-
-1. 打开 <https://github.com/LinLei0102/Nucaranlaeg.github.io/settings/pages>
-2. Build and deployment → Source 选 **GitHub Actions**
-3. 回到 <https://github.com/LinLei0102/Nucaranlaeg.github.io/actions> 重新运行 `Deploy GitHub Pages`（或再推一次 commit）
+- 根目录 `.nojekyll`：关闭 Jekyll，静态文件原样发布（`localization/`、`save/`、`dist/` 都不被处理）
 
 发布后的地址：
 
@@ -53,7 +46,7 @@
 - 游戏：<https://linlei0102.github.io/Nucaranlaeg.github.io/incremental/CavernousII/>
 - 残局存档导入页：<https://linlei0102.github.io/Nucaranlaeg.github.io/incremental/CavernousII/save/import.html>
 
-> 如果偏好「分支部署」：Source 选 *Deploy from a branch* → `master` / `/(root)`，无需工作流也会发布。
+> 维护提示：仓库根目录不再需要 Actions 工作流；若要改用 Actions 发布，先把 Pages 的 Build and deployment → Source 切成 *GitHub Actions*，再加回 `pages.yml`。
 
 ## 许可与致谢
 
