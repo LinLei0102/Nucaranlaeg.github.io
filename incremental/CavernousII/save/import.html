@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>循环洞穴 II · 汉化残局存档导入</title>
+<style>
+	:root { color-scheme: dark; }
+	body { margin: 0; padding: 40px 16px; background: #1c1f22; color: #e6e6e6;
+		font: 16px/1.7 "Microsoft YaHei", "PingFang SC", system-ui, sans-serif; }
+	main { max-width: 720px; margin: 0 auto; }
+	h1 { font-size: 24px; margin: 0 0 8px; }
+	.sub { color: #9aa0a6; margin: 0 0 24px; }
+	.card { background: #24282c; border: 1px solid #34393e; border-radius: 10px; padding: 18px 20px; margin-bottom: 16px; }
+	button { font: inherit; padding: 10px 18px; border-radius: 8px; border: 1px solid #4a90d9;
+		background: #2f6fa8; color: #fff; cursor: pointer; }
+	button:hover { background: #3a83c2; }
+	a { color: #7db8ea; }
+	code { background: #1a1d20; padding: 1px 6px; border-radius: 4px; }
+	#status { margin-top: 14px; min-height: 1.7em; }
+	ol, ul { margin: 8px 0 0; padding-left: 22px; }
+	.warn { color: #e8c07d; }
+</style>
+</head>
+<body>
+<main>
+	<h1>循环洞穴 II · 汉化残局存档</h1>
+	<p class="sub">用于查看后期内容的中文显示，不必从头玩。</p>
+
+	<div class="card">
+		<p><b>这个存档包含什么</b></p>
+		<ul>
+			<li>8 个区域全部解锁并通关</li>
+			<li>4 个界域可达（核心 / 长时 / 苍翠 / 复利）</li>
+			<li>6 枚符文各 3 级，4 个分身</li>
+			<li>属性与物资充足，配置面板、循环日志、全部消息均已解锁</li>
+		</ul>
+	</div>
+
+	<div class="card">
+		<p><b>怎么用</b></p>
+		<ol>
+			<li>点下面的按钮，把存档写进<b>专用存档位</b> <code>saveGameII_zhdemo</code>。</li>
+			<li>点出现的链接进入游戏，地址带 <code>?save=zhdemo</code>，不会影响你原来的存档。</li>
+			<li>想要回英文，进游戏后在<b>配置</b>面板顶部点「语言 / Language」即可切换。</li>
+		</ol>
+		<p class="warn">该存档位若已有数据，会先备份到 <code>saveGameII_zhdemo_backup</code> 再覆盖。</p>
+		<p>
+			<button id="go">导入残局存档</button>
+		</p>
+		<div id="status"></div>
+	</div>
+
+	<div class="card">
+		<p><b>想撤掉这个存档位</b></p>
+		<p>打开游戏任意页面，在控制台执行
+			<code>localStorage.removeItem("saveGameII_zhdemo")</code>
+			即可；主存档 <code>saveGameII</code> 从未被读写。</p>
+	</div>
+</main>
+<script>
+(function () {
+	var SLOT = "zhdemo";
+	var KEY = "saveGameII_" + SLOT;
+	var SAVE = "N4IgbgpgTgzglgewHYgFwCYB0AGA7AZgA4BOUs84gNgBoQAHAGwEMBPaAZQBcnOY0BtUEiYBbCGhABZJsJC0ARkxjjUAVgC+1IaJVS4SfQHM5IRcrTpV2bJu1iJAdQQIAJgGMArp05GTZlZbWtiDC9qhSTIZwbn5KAVY2WiE6Eux0EBAuseYYCcGhuuwicJwAFr4KcRZ5SQUSAEoeBm4ABAAyCFDilTmBiXa6AMIIIoqc2fFBtSnhAOIQIm5QTABm4z2T/clhIIOlUMgjMm4sE9VTAxIAgt5MbgDWZ7kX27oAIhArEEjmG+dbdXCAAkIEwGGUnn11ABdWgAL2QEDePCYAku4QAWoiWgBGEwMBBuHiIH4CfgAWhx1Ep1H42Go9MZ0NhdOpVNZjIZzNpVJpHIZXJZNPp/KZLM5osFPIFkuw3IpVPZnLFtPpSoFKv4itVGsFsJAAEcPBBjXxUPx+CzuSADl4IGbBCEEAA1MFwFwABSgiCgaBWYOUtDgMA6D0yfoDEFoXTBIjQ9JtCDtAiQHgYDH1IhkqNQCZgnA8KxWaNeElmCAYLhaADkPIZDBB1iA3EmkONUPhrACZiB2GCmy2mu3Oy9ASAAJIHJAtADyXRMg7baBH3Z28zjtEXw67+R7wzBC9b29HPcnyBaACEmL7N0flzvpjsz9OL96XA3D0P7yen1OWuwAHdOiyW8vw7B90QnP92HKCBK0/JdwJ/XRnxaK4oBEJMb2bO8kNXQpOAyBhL2vBDj3w1JCLgy83w/UDEJXXcdi4Ij/yAqAQJwsDGMfAjWJguA4M4rdvwo8IWOo9DMI8bCRLwpiUL/K4AA9ui4hiINLcJUI9aJHno8iFIkVCgVEMRZNwnjIIAahxNjgLI0SjPCWz/1g+CDKc3iJFcqSsMc+T9TcAkkAgEF+1KMkmR1OVM2zeoICNOAuiyXNo0SjxkpUS1aDuHxkGGMCE3deMYVoQwEAPVB/QYZRnJALFQpadB8UJYlkAdBU2RijV5XpPllSlLVutleVhR6zUJUG2LpRFaaxu1UbxWodVlXlRb5utI0TXtMkrX1W1CIdIQXTdT1vU6CNaqjEBg1De5w2qyN0tjeNoyTQiUzTDNaCzWQ0pAfNC2Lc1IPLSsazrBsB0szSxz7cEAqsrSoPPOc1Lk5Gx3XJG4b3SqGFx5DjL/K8LO4vHf3PV93To9TDO87ToPY4TYeJpnzwEoSibE1Hpz8mSefqiTiLJoXGd7KjRdojG2d5kX7I48XIIVrmPPpryValtCMP8zz5Il1CVNlin2b5lpdIeZWUZMszoGtsdXMAhz9axnsnfc1nTd53zdcF12dyCkKwtBcFIvNDllpmkA/qYBKkpSt6bQyrKS2xisq1retGwdnsEZh736tQ9Hc7XBZS6GAmK5J6nSIDs3UJp98TY0hvmZdjWDcg1C1a91veaNv3yf74XtbF+v5bHmXq/E7XnaVifR/4z2Z8l1iBeHhnu6U1TV50vS97/UyRHM1enZZs+7N7y+dekzenP1PKSUKxDitSnEypACqqpquqJcaiALR8CtSJPlUkEcaQDV1DNVkUC1osl5KtXqQoqRzWgX1GUm1ZoTSGjSJBk0Vo4JgRtdBW1jSmj2rSa0h1dqgydK6Bg7ovQ+iuoGW6IZCQPVSr/G6MYGBxgBjQr66Y4r/TzAWIsacezg0zlDHOi8Jb50PmjecCiwblzUSjfchNNFjkbnXTubsqYvmnro087cF6GMpopTmK8zHGNvnrKxZsFbj2cZPViTc6aY2sZRfiF97F8WotfQJfjJJD2UfzXeoSObTktvpdxRcj523vl3FG58O4+LNh7QS6ssk+zshvIWQdEThTDlFLkMVrSx3jplROgiU7zjoenCGWdoaryUTE82Jcuk4y6doyJJFUlGJsSY2mLct42wsX3SZejoJ2MSYbJSESumuIMfkpe1EvETM1ijVWATFla2XrkmZuz4bayKV0o20TDlTPPPEwZx9T5dIyZYjZEscncxeYUlZiTH5uDAS/dsb8LCf2/oTJ6116oAJaAAFhAe1cBFpIH4KGv1VFxCRpYK6mg+BPUlrYIJV1DFGCSUIMIUtfU20KER32u9O0x16FnWYZdSFbC7qcMejwl6/Ck5CPNKmERv1sxJyBpI5p0iM6Q2zgXEeij+yDJ6bc7GGjlX4wPFc0m6y5ZJOpqYtVDj56nLSXM2xJzBmXINUE0W2rC6KKnuMjpc8DnvKOcEhZrq9kXN+Z601USdkmvMfcg+mrzxPPtt8xWxqRk+Svh6nVHyfl32KZuYOZSIQR2ipHURcdGmPQTF0BO2UwZSrafIq1qQFWhunEq310jVV1p2AM6tQzBnbMGUajt8a7Xb3PJaxt1rW2rIdc3J1/jMkJrdcREJFbZ7rx9ZOu5/rBkPJbeG4ZviXJXxdYux2cbzWRv7Tq/5gLcIgo7GCqubKIDQuxKoBFYDOooqIRguByDpRvs1ONIlU1SGEuxXgl9y0yXSjJVS8htCLR0sTAytOp1GHnRYdeoMHCwzcOesnV6giPrZUFT9GOIqAZipBo6FpsiZUdKrbO7pqjqN9Oo826j+iN1tz1Y6ltnaOPdrlb2/mC6e1es8banjgmtn6oHWE6dO6BPnOOV86jCsj0yaDcultq6mPJJPhG6jrzo2bpAJ8vJu73ZJqcRskpoV03hwtFmlUBHhC1KyqlAteapFrlLXI2Vsy85UYk7E2ctG/MgHo0FxjQXmNtvE8Zw10mRN+rcgejTfb+NxbzmPYT3nmIju8dFwdnGFNz245lwdSnUsOONiukNSXpzrpvvloLhm9PZNM/7P5uUAXPzPUGVKsLL0/0jLepqlAH0kifYgoDOpP1DXG0S792Lf14uGri99xKJushA8NMDtBqWQZypaA6OHGVIHg0wi6vpkPsPulyjDfCBEFpw8I/DsdRUSJIyW1pnnKOIxbbW3LZYG1/fCGFwH5s3HhdJlF5TMWJ1Q9GQl+T4PkvJuHUJljHixPsYK+Ot5IPVZFbOWl+dyPqtoRuYjuJVXyctFq5G+rIPGs31K4ZCzIcIoVLlFUnNjn6kuaLW53QMjpXtNWb5kHxdAsg5CyD4HsOa4vgywThx7aOOxeK3L+HRnZf+aZ4rwdYPcfZYDTGudwTVe68kxrpr6PiI68DeVsnYu/zqapzTnT26Ydld0Azw9KXmftdPUVbraAND6nBawm9/9sS4BGx1Mkz6f1Yr/cNKbMC5tJ4Wyt1Ba3AMJ42yQ+B4GdqdWgzQo7J3EOsu5Zdzl6Hro8ru/Sz6Arvo5pe8DfnZYPMUZF99knv2tfBYBwPmXnv1f64H43SHo//N04n/MxLVPbfG7XlshXdu9dT7VybqTHut8r+nfj9fFul/6euUb0/TvKeO7DSkurZuj9bst4z33D9U2lNDhmmzlTs3Coc3m5z6UfOEq7mH23eCmouc+Ki5+ZsUuw+VcLa4+0+oOm+5uM+9+y+Pch+GByyxOQWayaOmy0smOeBzqu+qB++T+KO4SuB1+qmJOzutB1Ot+tO6B+m3ubujirW5m/unWget0qUlAfWEKPCg2gChAMeSKXUKer6eeiei2aei2GemoWes2+eK2aoa2ahYoheNKUGVCB2sGzS5eLK52VeHKaG4e9efKD2zeQq9mOY4i7ewBAuXewu4BveVO/eSBsBSBI+e+EWCBKBD+5ss+SBmBC+jBJ+Li6WBB9qniQRy++yZBwReOERA+imL+wRZ+lWVsa6zBHBoRe+7BDWLWBBLOVm7OUc1S8U/+fKrmzhneoBbheBEBYRf4Xhe+Phe+fh5BARJOyuJOhRvR8+COkRmRiRMRY6GOo6VBO+OO6RhWaRSBGRNBkBdBVODBaxTBWmsRNk7u8xSBxR9OpRKaIAT8BUXW/BaAuAQh4en8ngUAXQbYCUWG+Ab+oUyI3AaAoAck6AmgIAPgYQoAMATAkAAAKnAGEDiLgMQKoLCrCjCegJQDiMQFSACZCRAFeEgFwsHtgMQL1r9PaCCQ2J8TmBaCAA4HBC2GIC0JwAgC0IMKCdAMdh4DAAAIRyCcBQDGgsggBvBwD1gVBck8m0ggAzheAtAIArAtDSCyDUDCkQC8kQk0lgnLCQA6IKm8kejQDwD5iZAWwHCGDLAnxCncmKmilgmlCAIdAIB0BGCSnSk2l2lICGDtDOB0B8Dylmm8mylMAtAACiykXJ5xKAXpIp/Aks3odAMp+gpp4ZIAVw6YtJVpLQ9wx2AE04AErAnpmpopF4HgLAMpnQgCyp3QuZEZTp0AAA5DAG6YYKgP+B4HQIwAsN8NwBqd6aKQAGLJT5gMnBycmdkRnsAQAthIBViDADlhnmkRmWnJQTlTnlkgBdlYRlD9mIiDnxnljyCMKhlLkfA8CRTTm8ltCghQAGAumbkzkgBtCgl+mMlIBVmcAylwTPmuIyw5lDkRAwC1mymFh5QyRxnXnoREhNQhJLn+ltjQA1gQAAQtAAJXm8mzA6D/gEgAQuAIAZmIWikACqSABIaGLQlJTAD004jQoU2FEZeFBFXCRFJQVpUALQ5FZZX51FNeLQbwTZjCoCJITFTQLF8ZbFhFYJcEEAdAnQz5zFn5gl+F7FHoHgIg0ZzFlFYpZQ0FLx/C0l15XZMkaljFGlIgWlvJwwilrYLg9pBlKlOFdARpTALg+pnFjA0QiKfFFFx5uFNlyw9lVYDg9F6l/FKlCUTZtl3ldFelrlAl15pZQy3oOpKlJlLZhELQzo0ALgMg6wS5AAmkmHRUgBycefqMoN4EYGaKAKyUYFiVwqWWgAqdGE0BecYBdkwF4AgAlPmNeMOLQKyRAA4FcOwG8JYSAN1fyUWNAG2dsmaLVV/N6OOb6YNUafoC4FwDwGaFXgSHZV6GNQaKtRhlmeeSVTVWabQCsBWGhQhagFNYCXBPoCoFNVmMpGCQgO2RCVbKgDiF2OIjwLMDNZ6BwKOYNSFIYA4EwCULidYL9PoMtZwMhfoEnHQM1coDOEgB6BJf1lCo3pBqHj9fUIdgIAdPxaSR3uEMRaRSYMFV5RAECsuPVL5XpWTZ5XZZTZZPVI5dxYivTSFUzdxPVCJQwGJRJS0I9RzRTVTRehLLzfzVAM+V2QcBuENQzfZaLfgPVPJYpcLYzUrZ/FmG4OUKFA6DiOgCtIbQbUbQdKHCIITXQvdZIGmO2DiBANZCOLeIpXzYRLXn/KANbbbWgPbY7eDThC7Y2NdujZ7UwMpDbYjG9Q7U7QHYlcHR7QRuHd7VHX7QmNSXHe7TetCOoEAA==";
+	var status = document.getElementById("status");
+	document.getElementById("go").addEventListener("click", function () {
+		try {
+			var current = localStorage.getItem(KEY);
+			if (current) {
+				if (!confirm("存档位 " + KEY + " 已有数据，继续将覆盖（旧数据备份到 " + KEY + "_backup）。")) return;
+				localStorage.setItem(KEY + "_backup", current);
+			}
+			localStorage.setItem(KEY, SAVE);
+			status.innerHTML = '已写入 <code>' + KEY + '</code>。<a href="../index.html?save=' + SLOT + '">进入游戏（中文）→</a>';
+		} catch (e) {
+			status.textContent = "导入失败：" + e.message;
+		}
+	});
+})();
+</script>
+</body>
+</html>
