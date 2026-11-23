@@ -33,6 +33,28 @@
 - 撤销：游戏页控制台执行 localStorage.removeItem("saveGameII_zhdemo")
 - 主存档 saveGameII 从不读写，你的进度安全。
 
+## 在线部署（GitHub Pages）
+
+仓库已包含部署到 GitHub Pages 的全部材料：
+
+- 根目录 `index.html`：自动跳转到 `incremental/CavernousII/`
+- 根目录 `.nojekyll`：关闭 Jekyll，静态文件原样发布
+- `.github/workflows/pages.yml`：推送 `master` 或手动触发即构建并发布
+
+**首次启用只需一次设置**（仓库当前 `has_pages: false`，所以工作流会在 Configure Pages 步骤失败）：
+
+1. 打开 <https://github.com/LinLei0102/Nucaranlaeg.github.io/settings/pages>
+2. Build and deployment → Source 选 **GitHub Actions**
+3. 回到 <https://github.com/LinLei0102/Nucaranlaeg.github.io/actions> 重新运行 `Deploy GitHub Pages`（或再推一次 commit）
+
+发布后的地址：
+
+- 站点根：<https://linlei0102.github.io/Nucaranlaeg.github.io/>
+- 游戏：<https://linlei0102.github.io/Nucaranlaeg.github.io/incremental/CavernousII/>
+- 残局存档导入页：<https://linlei0102.github.io/Nucaranlaeg.github.io/incremental/CavernousII/save/import.html>
+
+> 如果偏好「分支部署」：Source 选 *Deploy from a branch* → `master` / `/(root)`，无需工作流也会发布。
+
 ## 许可与致谢
 
 - 游戏本体与全部美术、文案版权归原作者 **Nucaranlaeg** 所有，许可见 [../LICENSE.md](../LICENSE.md)。
