@@ -107,7 +107,11 @@
 		return "这枚符文会削弱所有正交相邻的敌人，使其攻击与防御各降低 1。";
 	});
 	add(/^This rune allows you to kill even hardy orthogonally (or diagonally )?adjacent plants\. Interact with it to charge it up - it takes ?(.*?) ?as much Temporal to charge as the plants you're trying to kill would take to chop\.$/, function (m, diag, amount) {
-		return "这枚符文能杀死哪怕最顽强的" + (diag ? "正交或对角" : "正交") + "相邻植物。与它交互即可充能 —— 充能所需的时间量，是你想杀的那些植物所需砍伐时间的 " + amount + "。";
+		var amt = amount ? amount.trim() : "";
+		var cost = amt
+			? "充能所需的时间量，是你想杀的那些植物砍伐所需时间的 " + amt + "。"
+			: "充能所需的时间量，与你想杀的那些植物砍伐所需的时间相同。";
+		return "这枚符文能杀死哪怕最顽强的" + (diag ? "正交或对角" : "正交") + "相邻植物。与它交互即可充能 —— " + cost;
 	});
 	add(/^This rune drains water from surrounding spaces\. It drains log_2\(Runic Lore\) \/ 25 water per second from its space and a quarter that from the 4 adjacent spaces\.$/, function () {
 		return "这枚符文会抽干周围的水。它每秒从自身格抽走 log_2(符文知识) / 25 的水量，并从 4 个相邻格抽走其四分之一。";
